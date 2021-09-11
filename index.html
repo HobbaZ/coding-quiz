@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+      <!--meta tags for browser stuff-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Zachary Hobba"/>
+    <meta name="description" content="website description for search engine"/>
+    <title>Javascript Quiz</title>
+
+    <!--link css-->
+    <link rel="stylesheet" type="text/css" href="./assets/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/style.css">
+
+    <!--Google Font link for custom font-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trispace">
+
+    <!--icon kit link for social media-->
+    <script src="https://kit.fontawesome.com/4b926c6456.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+      <header id="header-section">
+          <h1>website title</h1>
+          <nav>
+              <a href="#section">Some Link</a>
+              <a href="#section">Some Link</a>
+              <a href="#section">Some Link</a>
+          </nav>
+      </header>
+
+      <!--Content-->
+
+      <main>
+          <div id = "timer"></div>
+          <div id = "score"></div>
+          <div id = "quizContainer"></div>
+          <div id = "question"></div>
+          <div id= "resultsContainer">
+              <form>
+                  <label for="initials">Initials</label>
+                  <input type="text" name="initials" id = "initials" placeholder="A.B"/>
+                  <div id = "msg"></div>
+                  <button id="finishQuiz">Finish Quiz</button>
+              </form>
+          </div>
+          <button id= "startQuiz">START QUIZ</button>
+          <button id= "nextQuestion">SUBMIT</button>
+      </main>
+        <h4>footer of website est 2021</h4>
+      <footer>
+
+      </footer>
+      <!--link javascript at bottom of page so it works after everything has loaded-->
+      <script src="./assets/script.js"></script>
+</body>
+
+</html>
