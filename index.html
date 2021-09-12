@@ -33,20 +33,39 @@
       <!--Content-->
 
       <main>
+        <div id = "start">
+            <p>Test your knowledge in two minutes with this web development quiz</p>
+            <button id= "startQuiz">START QUIZ</button>
+        </div>
+        <div id = "quizContainer">
           <div id = "timer"></div>
           <div id = "score"></div>
-          <div id = "quizContainer"></div>
-          <div id = "question"></div>
+          <div id = "question">
+            <div id = "answerChoices"></div>
+            <input type= "text" name="yourAnswer" id = "yourAnswer"/>
+          </div>
+          
+          <button id = "nextQuestion">Next</button>
+          </div>
+
+          <!--results form-->
           <div id= "resultsContainer">
-              <form>
+              
+              <form id = "formInput">
                   <label for="initials">Initials</label>
                   <input type="text" name="initials" id = "initials" placeholder="A.B"/>
-                  <div id = "msg"></div>
+                  <!--<div id = "msg"></div>-->
+
                   <button id="finishQuiz">Finish Quiz</button>
               </form>
           </div>
-          <button id= "startQuiz">START QUIZ</button>
-          <button id= "nextQuestion">SUBMIT</button>
+
+          <div id= "highScoresContainer">
+              <h2>High Scores</h2><hr>
+              <p id = "getInitials">Name: </p>
+              <p id = "getScore">Score: </p>
+          </div>
+          
       </main>
         <h4>footer of website est 2021</h4>
       <footer>
