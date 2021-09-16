@@ -78,6 +78,10 @@ h1, h2, h3 {
     float: right;
 }
 
+#score {
+    float: left;
+}
+
 footer {
     bottom: 0px;
 }

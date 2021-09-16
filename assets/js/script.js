@@ -120,6 +120,7 @@ function nextQuestion() {
 function checkAnswer(userAnswer) {
     //put currentQuestion minus 1 otherwise answer is ahead of questions
     var correctAnswer = questionsArray[currentQuestion-1].answer;
+    var correctAnswerText = questionsArray[currentQuestion-1].answers[correctAnswer];
     
     if (userAnswer === correctAnswer) {
         var message = document.createElement("p");
@@ -129,11 +130,9 @@ function checkAnswer(userAnswer) {
         score++
         scoreSection.textContent = "Score: " + score;
         
-
     }   else {
-        console.log("correctAnswer");
         var message = document.createElement("p");
-        message.textContent = "Incorrect, the correct answer was " + correctAnswer;
+        message.textContent = "Incorrect, the correct answer was " + correctAnswerText;
         message.style.color = "red";
         question.append(message);
         timer = timer - 10;
@@ -192,27 +191,33 @@ if (timer === 0) {
 function submitScore(event) {
     event.preventDefault();
     var userInitials = document.querySelector("#initialsInput").value;
+    userInitials = userInitials.toUpperCase();
     var message = document.createElement("p");
 
     if (userInitials === "") {
         message.textContent = "Please enter your initials";
         message.style.color = "red";
-        //endQuizMessage.append(message);
     } else {
         var setScore = {
             Name: userInitials, Score: score
-        }
+        };
         message.textContent = "Your score has been saved, you will now be returned to the quiz start page";
         message.style.color = "green";
         
+        //first get item from local storage
         var highScore = localStorage.getItem("highScore");
 
-        if (highScore || score > parseInt(highScore)) {
+        //check if highscore existst or is null, set to 0 if it is
+        if (!highScore || highScore === null) {
+                localStorage.setItem('highScore', 0);
+                console.log(highScore);
+        } else if (highScore || score > parseInt(highScore)) {
                 localStorage.setItem('highScore', JSON.stringify(setScore));
                 console.log(`${setScore.Name} - ${setScore.Score}`);
                 //store score in variable to get later
                 saveHighScore = (`${setScore.Name} - ${setScore.Score}`);
         }
+
         //waits one second to reset the quiz
         setTimeout(function() {
             endQuizContainer.style.display = "none";
@@ -223,10 +228,6 @@ function submitScore(event) {
 }
 
 function displayHighScores() {
-    //create table to display score
-    var table = createElement('table');
-    table.style.width = '100px';
-    table.style.border = '1px solid black';
 
     highScoreText.innerHTML= "<tr><td>Name -</td><td> Score</td></tr><br>";
     //show highscores window

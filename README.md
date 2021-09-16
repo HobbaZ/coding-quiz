@@ -6,8 +6,10 @@ When you press the start button, the timer will give you 2 minutes to answer 5 q
 
 After you complete the quiz, you'll be asked to enter your initials and the Save Score button will save your score to the high scores page.
 
-### Screenshot
+A bug that I've found is after you enter your initials and the quiz resets, it will skip right to the end if you press start again (too late to fix this issue).
 
+### Screenshot
+![Quiz Website screenshot](./assets/immages/screen-cap.PNG)
 
 ### Technology
 JS, CSS, HTML
