@@ -77,6 +77,8 @@ var score = 0;
 var timer = 180;
 var currentQuestion = 0;
 
+var saveHighScore = "";
+
 //at start of quiz (page load)
 startQuizContainer.style.display = "block";
 quizContainer.style.display = "none";
@@ -207,7 +209,9 @@ function submitScore(event) {
 
         if (highScore || score > parseInt(highScore)) {
                 localStorage.setItem('highScore', JSON.stringify(setScore));
-                console.log(highScore);
+                console.log(`${setScore.Name} - ${setScore.Score}`);
+                //store score in variable to get later
+                saveHighScore = (`${setScore.Name} - ${setScore.Score}`);
         }
         //waits one second to reset the quiz
         setTimeout(function() {
@@ -219,13 +223,17 @@ function submitScore(event) {
 }
 
 function displayHighScores() {
+    //create table to display score
+    var table = createElement('table');
+    table.style.width = '100px';
+    table.style.border = '1px solid black';
+
+    highScoreText.innerHTML= "<tr><td>Name -</td><td> Score</td></tr><br>";
     //show highscores window
     if (localStorage.getItem('highScore')) {
-    var getScore = (localStorage.getItem("highScore"));
-        highScoreText.innerHTML = getScore;
+        highScoreText.innerHTML += saveHighScore;
     } else {
-        var getScore = "";
-        highScoreText.innerHTML = "No high scores here yet, be the first!"
+        highScoreText.textContent += "No high scores here yet, be the first!"
     }
     highScoresContainer.style.display = "block";
 }
