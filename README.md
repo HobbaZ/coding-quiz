@@ -9,7 +9,7 @@ After you complete the quiz, you'll be asked to enter your initials and the Save
 A bug that I've found is after you enter your initials and the quiz resets, it will skip right to the end if you press start again (too late to fix this issue).
 
 ### Screenshot
-![Quiz Website screenshot](./assets/immages/screen-cap.PNG)
+![Quiz Website screenshot](./assets/images/screen-cap.png)
 
 ### Technology
 JS, CSS, HTML
